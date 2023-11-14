@@ -1,0 +1,5 @@
+/sgoinfre/goinfre/Perso/masamoil/TodoList/src/main/java/samoyla/TodoList/TodoListApplication.java
+/sgoinfre/goinfre/Perso/masamoil/TodoList/src/main/java/samoyla/TodoList/entity/Task.java
+/sgoinfre/goinfre/Perso/masamoil/TodoList/src/main/java/samoyla/TodoList/exception/TaskNotFoundException.java
+/sgoinfre/goinfre/Perso/masamoil/TodoList/src/main/java/samoyla/TodoList/repository/TaskRepository.java
+/sgoinfre/goinfre/Perso/masamoil/TodoList/src/main/java/samoyla/TodoList/controller/TaskController.java
