@@ -9,5 +9,25 @@ services:
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: data_base
       POSTGRES_USER: sam
+    networks:
+      - my-network
+
+  backend:
+    build: backend
+    #dockerfile: Dockerfile
+    restart: always
     ports:
-      - 6824:5432
+      - 8090:8080
+    depends_on:
+      - db
+    # healthcheck:
+    #   test: ["CMD-SHELL", "pg_isready -U sam -h db"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 5
+    networks:
+      - my-network
+  
+networks:
+  my-network:
+    driver: bridge
