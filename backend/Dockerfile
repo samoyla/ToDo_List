@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 # Commande par défaut pour le conteneur (peut être remplacée lors du lancement du conteneur)
-#CMD ["bash"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
 
-#ENTRYPOINT ["mvn", "spring-boot:run"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
+
+ENTRYPOINT ["mvn", "spring-boot:run"]
