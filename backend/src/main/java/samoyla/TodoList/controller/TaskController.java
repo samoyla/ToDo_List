@@ -6,19 +6,9 @@ import samoyla.TodoList.exception.TaskNotFoundException;
 import samoyla.TodoList.repository.TaskRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
-// @CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE}, allowedHeaders = "*")
 @RestController
 @RequestMapping("/tasks")
@@ -59,17 +49,11 @@ public class TaskController {
         taskRepository.deleteById(taskId);
     }
 
-    @PatchMapping("/{taskId}/done")
-    public Task markTaskAsDone(@PathVariable Long taskId) {
+   @PatchMapping("/{taskId}/toggle")
+    public Task toggleTask(@PathVariable Long taskId) {
         Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
-        task.setCompleted(true);
+        task.setCompleted(!task.isCompleted());
         return taskRepository.save(task);
     }
 
-    @PatchMapping("/{taskId}/undo")
-    public Task markTaskAsUndone(@PathVariable Long taskId) {
-        Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
-        task.setCompleted(false);
-        return taskRepository.save(task);
-    }
 }

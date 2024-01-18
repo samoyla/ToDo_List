@@ -13,8 +13,10 @@ services:
       - my-network
 
   backend:
-    build: backend
-    #dockerfile: Dockerfile
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     restart: always
     ports:
       - 8080:8080
@@ -29,11 +31,19 @@ services:
       - my-network
 
   frontend:
-    build: frontend
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     restart: always
+    ports:
+      - 3000:3000
     depends_on:
+      - db
       - backend
-    command: /bin/sh -c "npm install && npm start"
+    volumes:
+      - ./frontend:/app
+    command: [ "/usr/local/bin/npm", "run", "start"]
     networks:
       - my-network
   
