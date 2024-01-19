@@ -26,12 +26,10 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    @GetMapping
     public List<Task> getAllTask() {
         return taskRepository.findAll();
     }
     
-    @PostMapping
     public Task createTask(Task task) {
         if(task.getContent() == null || task.getContent().isEmpty()) {
             throw new IllegalArgumentException("Task content cannot be empty");
@@ -39,13 +37,11 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    @GetMapping("/{taskId}")
     public Task getTaskById(@PathVariable Long taskId) {
         if(taskId == null) throw new IllegalArgumentException("Task id cannot be null");
         return taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
     }
 
-    @PutMapping("/{taskId}")
     public Task updateTask(@PathVariable Long taskId, @RequestBody Task updatedTask) {
         if(taskId == null) throw new IllegalArgumentException("Task id cannot be null");
         Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
@@ -54,17 +50,26 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    @DeleteMapping("/{taskId}")
     public void deleteTask(@PathVariable Long taskId) {
         if(taskId == null) throw new IllegalArgumentException("Task id cannot be null");
         taskRepository.deleteById(taskId);
     }
 
-    @PatchMapping("/{taskId}/toggle")
     public Task toggleTask(@PathVariable Long taskId) {
         if(taskId == null) throw new IllegalArgumentException("Task id cannot be null");
         Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
         task.setCompleted(!task.isCompleted());
+        return taskRepository.save(task);
+    }
+
+    public List<Task> getTaskByType(String type){
+        return taskRepository.findByType(type);
+    }
+
+    public Task updateTaskType(Long taskId, String type) {
+        if(taskId == null) throw new IllegalArgumentException("Task id cannot be null");
+        Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
+        task.setType(type);
         return taskRepository.save(task);
     }
 }

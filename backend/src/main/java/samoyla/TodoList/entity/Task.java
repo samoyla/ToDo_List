@@ -16,11 +16,13 @@ public class Task {
 
     private String content;
     private boolean completed = false;
+    private String type;
     
-    public Task(Long id, String content, boolean completed) {
+    public Task(Long id, String content, boolean completed, String type) {
         this.id = id;
         this.content = content;
         this.completed = completed;
+        this.type = type;
     }
     public Task() {
     }
@@ -41,5 +43,11 @@ public class Task {
     }
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
     }
 }

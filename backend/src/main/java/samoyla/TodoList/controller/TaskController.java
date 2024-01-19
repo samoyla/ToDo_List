@@ -6,6 +6,9 @@ import samoyla.TodoList.service.TaskService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 //@CrossOrigin(origins = "http://localhost:3000")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE}, allowedHeaders = "*")
@@ -50,5 +53,16 @@ public class TaskController {
     public Task toggleTask(@PathVariable Long taskId) {
         return taskService.toggleTask(taskId);
     }
+
+    @GetMapping("/type/{type}")
+    public List<Task> getTasksByType(@PathVariable String type) {
+        return taskService.getTasksByType(type);
+    }
+
+    @PatchMapping("/{taskId}/type")
+    public Task updateTaskType(@PathVariable Long taskId, @RequestParam String type) {
+        return taskService.updateTaskType(taskId, type);
+    }
+    
 
 }
