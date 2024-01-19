@@ -2,8 +2,7 @@ package samoyla.TodoList.controller;
 
 import java.util.List;
 import samoyla.TodoList.entity.Task;
-import samoyla.TodoList.exception.TaskNotFoundException;
-import samoyla.TodoList.repository.TaskRepository;
+import samoyla.TodoList.service.TaskService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,46 +13,42 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/tasks")
 public class TaskController {
     
-    @Autowired
-    private TaskRepository taskRepository;
 
-    public TaskController(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
+    private final TaskService taskService;
+
+    @Autowired
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
     }
 
     @GetMapping
     public List<Task> getAllTask() {
-        return taskRepository.findAll();
+        return taskService.getAllTask();
     }
 
     @PostMapping
     public Task createTask(@RequestBody Task task) {
-        return taskRepository.save(task);
+        return taskService.createTask(task);
     }
 
     @GetMapping("/{taskId}")
     public Task getTaskById(@PathVariable Long taskId) {
-        return taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
+        return taskService.getTaskById(taskId);
     }
 
     @PutMapping("/{taskId}")
     public Task updateTask(@PathVariable Long taskId, @RequestBody Task updatedTask) {
-        Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
-        task.setContent(updatedTask.getContent());
-        task.setCompleted(updatedTask.isCompleted());
-        return taskRepository.save(task);
+        return taskService.updateTask(taskId, updatedTask);
     }
 
     @DeleteMapping("/{taskId}")
     public void deleteTask(@PathVariable Long taskId) {
-        taskRepository.deleteById(taskId);
+        taskService.deleteTask(taskId);
     }
 
-   @PatchMapping("/{taskId}/toggle")
+    @PatchMapping("/{taskId}/toggle")
     public Task toggleTask(@PathVariable Long taskId) {
-        Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
-        task.setCompleted(!task.isCompleted());
-        return taskRepository.save(task);
+        return taskService.toggleTask(taskId);
     }
 
 }
