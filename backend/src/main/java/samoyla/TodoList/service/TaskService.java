@@ -8,24 +8,24 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import samoyla.TodoList.entity.Task;
 import samoyla.TodoList.repository.TaskRepository;
 import samoyla.TodoList.exception.TaskNotFoundException;
-import samoyla.TodoList.mapper.TaskMapper;
+// import samoyla.TodoList.mapper.TaskMapper;
 
 @Service
 public class TaskService {
     
     private final TaskRepository taskRepository;
-    private final TaskMapper taskMapper;
+    // private final TaskMapper taskMapper;
 
-    public TaskService(TaskRepository taskRepository, TaskMapper taskMapper) {
+    public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
-        this.taskMapper = taskMapper;
+        // this.taskMapper = taskMapper;
     }
 
     public List<Task> getAllTask() {

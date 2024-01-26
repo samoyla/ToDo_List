@@ -8,7 +8,7 @@ import samoyla.TodoList.entity.Task;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-26T15:27:41+0100",
+    date = "2024-01-26T17:15:40+0100",
     comments = "version: 1.4.2.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240103-0614, environment: Java 17.0.9 (Eclipse Adoptium)"
 )
 public class TaskMapperImpl implements TaskMapper {
