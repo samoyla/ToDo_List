@@ -15,15 +15,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import samoyla.TodoList.entity.Task;
 import samoyla.TodoList.repository.TaskRepository;
 import samoyla.TodoList.exception.TaskNotFoundException;
+import samoyla.TodoList.mapper.TaskMapper;
 
 @Service
 public class TaskService {
     
     private final TaskRepository taskRepository;
+    private final TaskMapper taskMapper;
 
-    @Autowired
-    public TaskService(TaskRepository taskRepository) {
+    public TaskService(TaskRepository taskRepository, TaskMapper taskMapper) {
         this.taskRepository = taskRepository;
+        this.taskMapper = taskMapper;
     }
 
     public List<Task> getAllTask() {

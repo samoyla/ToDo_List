@@ -1,0 +1,10 @@
+samoyla/TodoList/repository/TaskRepository.class
+samoyla/TodoList/mapper/TaskMapper.class
+samoyla/TodoList/dto/TaskDTO.class
+samoyla/TodoList/entity/Task.class
+samoyla/TodoList/service/TaskService.class
+samoyla/TodoList/mapper/TaskMapperImpl.class
+samoyla/TodoList/config/MappingConfig.class
+samoyla/TodoList/controller/TaskController.class
+samoyla/TodoList/TodoListApplication.class
+samoyla/TodoList/exception/TaskNotFoundException.class

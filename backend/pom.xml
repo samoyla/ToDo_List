@@ -36,6 +36,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.4.2.Final</version> <!-- Assurez-vous de vérifier la dernière version sur le site officiel -->
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>1.4.2.Final</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -47,6 +58,20 @@
 					<image>
 						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
 					</image>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version> <!-- Utilisez la version la plus récente -->
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>1.4.2.Final</version> <!-- Utilisez la version la plus récente -->
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>

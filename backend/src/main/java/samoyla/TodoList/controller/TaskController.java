@@ -56,7 +56,7 @@ public class TaskController {
 
     @GetMapping("/type/{type}")
     public List<Task> getTasksByType(@PathVariable String type) {
-        return taskService.getTasksByType(type);
+        return taskService.getTaskByType(type);
     }
 
     @PatchMapping("/{taskId}/type")
