@@ -8,8 +8,8 @@ import samoyla.TodoList.entity.Task;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-26T17:15:40+0100",
-    comments = "version: 1.4.2.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240103-0614, environment: Java 17.0.9 (Eclipse Adoptium)"
+    date = "2024-01-29T13:30:49+0100",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 18.0.2-ea (Private Build)"
 )
 public class TaskMapperImpl implements TaskMapper {
 
@@ -21,8 +21,8 @@ public class TaskMapperImpl implements TaskMapper {
 
         TaskDTO taskDTO = new TaskDTO();
 
-        taskDTO.setCompleted( task.isCompleted() );
         taskDTO.setContent( task.getContent() );
+        taskDTO.setCompleted( task.isCompleted() );
         taskDTO.setType( task.getType() );
 
         return taskDTO;
@@ -36,9 +36,9 @@ public class TaskMapperImpl implements TaskMapper {
 
         Task task = new Task();
 
-        task.setCompleted( taskDTO.isCompleted() );
-        task.setContent( taskDTO.getContent() );
         task.setId( taskDTO.getId() );
+        task.setContent( taskDTO.getContent() );
+        task.setCompleted( taskDTO.isCompleted() );
         task.setType( taskDTO.getType() );
 
         return task;

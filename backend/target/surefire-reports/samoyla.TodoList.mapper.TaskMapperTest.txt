@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------
+Test set: samoyla.TodoList.mapper.TaskMapperTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in samoyla.TodoList.mapper.TaskMapperTest
+samoyla.TodoList.mapper.TaskMapperTest.testTaskMapping  Time elapsed: 0.015 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at samoyla.TodoList.mapper.TaskMapperTest.testTaskMapping(TaskMapperTest.java:19)
+Caused by: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at samoyla.TodoList.mapper.TaskMapperTest.testTaskMapping(TaskMapperTest.java:19)
+Caused by: java.lang.reflect.InvocationTargetException
+	at samoyla.TodoList.mapper.TaskMapperTest.testTaskMapping(TaskMapperTest.java:19)
+Caused by: java.lang.Error: 
+Unresolved compilation problems: 
+	The import samoyla.TodoList.dto cannot be resolved
+	The import samoyla.TodoList.entity cannot be resolved
+	TaskMapper cannot be resolved to a type
+	TaskDTO cannot be resolved to a type
+	Task cannot be resolved to a type
+	TaskDTO cannot be resolved to a type
+	TaskDTO cannot be resolved to a type
+	Task cannot be resolved to a type
+	TaskDTO cannot be resolved to a type
+	Task cannot be resolved to a type
+	Task cannot be resolved to a type
+	TaskDTO cannot be resolved to a type
+	The method tasksToTaskDTOs(List<Task>) of type TaskMapperImpl must override or implement a supertype method
+	Task cannot be resolved to a type
+	TaskDTO cannot be resolved to a type
+	TaskDTO cannot be resolved to a type
+	Task cannot be resolved to a type
+
+	at samoyla.TodoList.mapper.TaskMapperTest.testTaskMapping(TaskMapperTest.java:19)
+

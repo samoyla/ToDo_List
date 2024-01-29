@@ -4,7 +4,7 @@ import java.util.List;
 import samoyla.TodoList.entity.Task;
 import samoyla.TodoList.service.TaskService;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +19,7 @@ public class TaskController {
 
     private final TaskService taskService;
 
-    @Autowired
+    //@Autowired
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
