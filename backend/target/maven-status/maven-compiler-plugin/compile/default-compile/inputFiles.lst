@@ -1,9 +1,0 @@
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/dto/TaskDTO.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/mapper/TaskMapper.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/entity/Task.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/config/MappingConfig.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/TodoListApplication.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/repository/TaskRepository.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/service/TaskService.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/controller/TaskController.java
-/sgoinfre/goinfre/Perso/masamoil/ToDo_List/backend/src/main/java/samoyla/TodoList/exception/TaskNotFoundException.java
